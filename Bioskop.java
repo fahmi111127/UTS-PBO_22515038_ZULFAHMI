@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 
-/**
- * Class pengelola utama sistem manajemen Bioskop.
- */
 public class Bioskop {
     private String namaBioskop;
     private ArrayList<Film> daftarFilm;
@@ -28,7 +25,6 @@ public class Bioskop {
         riwayatAktivitas.push("Tambah Studio: " + studio.getNamaStudio());
     }
 
-    // Menghitung jumlah tiket aktif saat ini
     public int hitungTiketAktif() {
         int aktif = 0;
         for (Tiket t : daftarTiket) {
@@ -37,18 +33,15 @@ public class Bioskop {
         return aktif;
     }
 
-    // Pemesanan tiket dengan validasi kapasitas studio dan keunikan kursi
     public boolean pesanTiket(String idTiket, String namaPemesan, String nomorKursi, Studio studioTujuan) {
         if (studioTujuan == null) {
             System.out.println("Error: Studio tidak ditemukan!");
             return false;
         }
-        // Validasi invariant 1: Kapasitas studio terbatas
         if (hitungTiketAktif() >= studioTujuan.getKapasitas()) {
             System.out.println("Aturan Bisnis Gagal: Kapasitas studio sudah penuh (" + studioTujuan.getKapasitas() + " kursi)!");
             return false;
         }
-        // Validasi invariant 2: Kursi yang sudah dipesan tidak bisa dipesan lagi
         for (Tiket t : daftarTiket) {
             if (t.getNomorKursi().equalsIgnoreCase(nomorKursi) && t.isStatusAktif()) {
                 System.out.println("Aturan Bisnis Gagal: Kursi " + nomorKursi + " sudah dipesan!");
@@ -63,7 +56,6 @@ public class Bioskop {
         return true;
     }
 
-    // Batalkan transaksi terakhir menggunakan prinsip LIFO Stack
     public void batalkanTransaksiTerakhir() {
         if (!daftarTiket.isEmpty() && !riwayatAktivitas.isEmpty()) {
             Tiket tiketTerakhir = daftarTiket.get(daftarTiket.size() - 1);
@@ -76,7 +68,6 @@ public class Bioskop {
         }
     }
 
-    // Pencarian data berdasarkan kode atau judul/nama
     public void cariData(String kataKunci) {
         boolean ditemukan = false;
         System.out.println("--- Hasil Pencarian untuk '" + kataKunci + "' ---");
@@ -97,7 +88,6 @@ public class Bioskop {
         }
     }
 
-    // Ringkasan laporan
     public void tampilkanRingkasan() {
         double totalPendapatan = 0;
         double hargaDefault = daftarStudio.isEmpty() ? 0 : daftarStudio.get(0).getHargaTiket();

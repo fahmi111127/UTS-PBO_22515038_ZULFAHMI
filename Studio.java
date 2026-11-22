@@ -4,10 +4,8 @@ public class Studio {
     private int kapasitas;
     private double hargaTiket;
 
-    // Konstruktor Default
     public Studio() {}
 
-    // Konstruktor Berparameter
     public Studio(String idStudio, String namaStudio, int kapasitas, double hargaTiket) {
         this.idStudio = idStudio;
         this.namaStudio = namaStudio;
@@ -15,7 +13,6 @@ public class Studio {
         setHargaTiket(hargaTiket);
     }
 
-    // Getter dan Setter dengan Validasi
     public String getIdStudio() { return idStudio; }
     public void setIdStudio(String idStudio) { this.idStudio = idStudio; }
 
@@ -40,7 +37,6 @@ public class Studio {
         }
     }
 
-    // Method Perilaku
     public void tampilkanInfoStudio() {
         System.out.println("Studio ID: " + idStudio + " | Nama: " + namaStudio + " | Kapasitas: " + kapasitas + " kursi | Harga: Rp " + hargaTiket);
     }

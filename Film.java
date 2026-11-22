@@ -4,10 +4,8 @@ public class Film {
     private String genre;
     private int durasiMenit;
 
-    // Konstruktor Default
     public Film() {}
 
-    // Konstruktor Berparameter
     public Film(String idFilm, String judul, String genre, int durasiMenit) {
         this.idFilm = idFilm;
         this.judul = judul;
@@ -15,7 +13,6 @@ public class Film {
         setDurasiMenit(durasiMenit);
     }
 
-    // Getter dan Setter dengan Validasi
     public String getIdFilm() { return idFilm; }
     public void setIdFilm(String idFilm) { this.idFilm = idFilm; }
 
@@ -34,7 +31,6 @@ public class Film {
         }
     }
 
-    // Method perilaku
     public void tampilkanInfoFilm() {
         System.out.println("ID: " + idFilm + " | Judul: " + judul + " | Genre: " + genre + " | Durasi: " + durasiMenit + " menit");
     }

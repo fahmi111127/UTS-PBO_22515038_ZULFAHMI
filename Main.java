@@ -1,14 +1,10 @@
 import java.util.Scanner;
 
-/**
- * Class utama untuk menjalankan antarmuka menu konsol sistem Bioskop.
- */
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Bioskop bioskop = new Bioskop("Cinema Kendari", 10); // Kapasitas Stack = 10
+        Bioskop bioskop = new Bioskop("Cinema Kendari", 10); 
 
-        // Data awal (seed data) agar program siap diuji
         bioskop.tambahFilm(new Film("F01", "Interstellar", "Sci-Fi", 169));
         bioskop.tambahStudio(new Studio("S01", "Studio Reguler 1", 3, 45000));
 
